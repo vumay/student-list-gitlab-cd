@@ -69,7 +69,7 @@
     networks:
       - name: student-list_network
     ports:
-      - "4000:4000"
+      - "4000:5000"
   tags:
     - deploy
 

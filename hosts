@@ -5,4 +5,3 @@ ec2-54-80-153-124.compute-1.amazonaws.com ansible_user=centos ansible_ssh_common
 ec2-100-24-55-200.compute-1.amazonaws.com ansible_user=centos ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 #[all:children]
 #prod
-#build

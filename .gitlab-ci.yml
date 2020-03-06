@@ -4,6 +4,8 @@ stages:
   - check
   - build
   - deploy
+  - final-check
+
 
 # Generic preflight template
 .preflight: &preflight
@@ -92,3 +94,11 @@ deploy-student-list:
     - ansible-playbook  -i hosts --vault-password-file vault.key --private-key id_rsa --tags "deploy" --limit prod install_student_list.yml
   only:
     - master 
+
+check-post-deploy:
+  <<: *ansible
+  stage: final-check
+  script:
+    - ansible all -i hosts -m shell -a "curl -u toto:python -X GET http://pozos-api:4000/pozos/api/v1.0/get_student_ages" --vault-password-file vault.key --private-key id_rsa --limit prod
+  only:
+    - master

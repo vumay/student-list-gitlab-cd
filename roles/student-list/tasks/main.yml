@@ -42,7 +42,7 @@
 
 - name: Build api image and push it to Docker Hub
   docker_image:
-    path: "{{ home }}/student-list/simple_api"
+    path: "{{ home }}/Pozos/simple_api"
     name: "{{ docker_hub_login }}/student-list-api"
     push: yes
     tag: "{{ student_list_docker_image_tag }}"

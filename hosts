@@ -6,4 +6,3 @@ ec2-100-24-55-200.compute-1.amazonaws.com ansible_user=centos ansible_ssh_common
 #[all:children]
 #prod
 #build
-#test

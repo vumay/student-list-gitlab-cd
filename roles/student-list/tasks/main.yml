@@ -13,7 +13,7 @@
     - build
 - name: create project directory
   file:
-    path: "{{ home }}/student-list"
+    path: "{{ home }}/Pozos"
     state: directory
   tags:
     - build
@@ -29,13 +29,13 @@
 
 - name: Retrieve stident-list addons source code
   git:
-    repo: "{{ student_list_source_repo  }}"
-    dest: "{{ home }}/student-list"
+    repo: "{{ Pozos_source_repo  }}"
+    dest: "{{ home }}/Pozos"
     accept_hostkey: yes
     force: yes
     recursive: no
     key_file: "{{ home }}/.ssh/id_rsa"
-    version: "{{ student_list_source_branch }}"
+    version: "{{ pozos_source_branch }}"
   tags:
     - build
     - deploy
@@ -65,7 +65,7 @@
     image: "{{ docker_hub_login }}/student-list-api:{{ student_list_docker_image_tag }}"
     state: started
     volumes:
-      - "{{ home }}/student-list/simple_api/student_age.json:/data/student_age.json"
+      - "{{ home }}/Pozos/simple_api/student_age.json:/data/student_age.json"
     networks:
       - name: student-list_network
     ports:
@@ -83,7 +83,7 @@
     networks:
       - name: student-list_network
     volumes:
-      - "{{ home }}/student-list/website:/var/www/html"
+      - "{{ home }}/Pozos/website:/var/www/html"
     env:
       USERNAME: "toto"
       PASSWORD: "python"

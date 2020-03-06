@@ -99,6 +99,6 @@ check-post-deploy:
   <<: *ansible
   stage: final-check
   script:
-    - ansible all -i hosts -m shell -a "curl -u toto:python -X GET http://52.207.223.158:4000/pozos/api/v1.0/get_student_ages" --vault-password-file vault.key --private-key id_rsa --limit prod
+    - ansible all -i hosts -m shell -a "curl -u toto:python -X GET http://100.24.55.200:4000/pozos/api/v1.0/get_student_ages" --vault-password-file vault.key --private-key id_rsa --limit prod
   only:
     - master

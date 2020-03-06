@@ -29,13 +29,13 @@
 
 - name: Retrieve stident-list addons source code
   git:
-    repo: "{{ Pozos_source_repo  }}"
+    repo: "{{ student_list_source_repo  }}"
     dest: "{{ home }}/Pozos"
     accept_hostkey: yes
     force: yes
     recursive: no
     key_file: "{{ home }}/.ssh/id_rsa"
-    version: "{{ pozos_source_branch }}"
+    version: "{{ student_list_source_branch }}"
   tags:
     - build
     - deploy
